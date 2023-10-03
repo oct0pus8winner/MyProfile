@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #bbbbbb;
+}
+
+header {
+  background-image: url(../images/background1.JPG);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/**
+ * ------------------------------------------------------
+ * button setting
+ * Import from https://web-camp.io/magazine/archives/93605
+ */
+.page-top-btn {
+  text-decoration: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-weight: bold;
+  padding: 0.7em;
+  text-align: center;
+  background: rgb(82, 194, 208, 0.5);
+  color: white;
+  transition: 0.3s0;
+}
+
+.page-top-btn:hover {
+  background-color: rgb(82, 194, 208);
+  color: rgb(255, 255, 255, 0.8);
+}
+
+/**
+ * ------------------------------------------------------
+ *
+ * Decide the position of body
+ */
+.wrapper {
+  max-width: 1100px;
+  /*横幅の最大値*/
+  margin: 0 auto;
+  /*中央に配置*/
+  padding: 0 4%;
+  /*スマートフォン向けの余白*/
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting for header
+ */
+.unclear {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.page-header {
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-between;
+  max-height: 3rem;
+  margin: 0 auto;
+  padding: 0 4%;
+}
+
+header a:link {
+  color: white;
+}
+
+header a:visited {
+  color: white;
+}
+
+.main-nav {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav-li {
+  margin-left: 36px;
+}
+
+.pages, .main-navi {
+  font-family: serif;
+  color: white;
+}
+
+.shadow {
+  text-shadow: 1px 1px 0 #664744, -1px -1px 0 #664744,
+    -1px 1px 0 #664744, 1px -1px 0 #664744,
+    0px 1px 0 #664744, 0-1px 0 #664744,
+    -1px 0 0 #664744, 1px 0 0 #664744;
+}
+
+/**
+ * ------------------------------------------------------
+ * Margin to make texts easier to read
+ */
+.wrap-text {
+  margin-left: 10px;
+  padding-bottom: 5px;
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting for header name
+ */
+.name {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  font-family: serif;
+  color: white;
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting for subsection
+ */
+
+.subsection {
+  font-family: serif;
+  color: #dddddd;
+  background-color: #078C8C;
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting to clarify background
+ */
+
+section {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-bottom: 2px solid #078C8C;
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting for list
+ */
+
+.item {
+  border-bottom: dashed 1px;
+  border-color: #078C8C;
+}
+
+.item-year {
+  display: inline-block;
+  width: 58px;
+}
+
+.item-day {
+  display: inline-block;
+  width: 80px;
+}
+
+.item-content {
+  display: inline-block;
+  max-width: 850px;
+}
+
+.contact-item {
+  display: inline-block;
+  max-width: 200px;
+}
+
+.contact-content {
+  display: inline-block;
+  max-width: 900px;
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting of footer
+ */
+footer {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+  border-bottom: 2px solid #078C8C;
+}
+
+/**
+ * ------------------------------------------------------
+ * Make button
+ */
+.button {
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(8, 153, 152, 1);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.button:hover {
+  background-color: rgba(7, 140, 140, 1);
+}
+
+/**
+ * ------------------------------------------------------
+ * Setting for eng
+ * Import from https://coliss.com/articles/build-websites/operation/css/css-align-lists-flush-left-by-jeremy.html
+ */
+
+.eng-list {
+  list-style: none;
+  padding-left: 0;
+  display: table;
+}
+
+footer li {
+  display: table-row;
+  margin-bottom: 0.5em;
+}
+
+footer li:before {
+  content: "•";
+  display: table-cell;
+  padding-right: 0.4em;
+}
+
+footer li:after {
+  content: "";
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.eng-list-item:link {
+  color: rgba(8, 153, 152, 1);
+}
+
+.eng-list-item:visited {
+  color: rgba(4, 77, 77, 1);
+}
