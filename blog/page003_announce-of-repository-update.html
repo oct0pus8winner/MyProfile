@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haruhito Ando</title>
+    <link rel="stylesheet" href="../style/style.css" type="text/css" media="all">
+</head>
+
+<body class="wrapper">
+    <header>
+        <div id="banner">
+            <h1>Haruhito_Ando.lib</h1>
+        </div>
+    </header>
+    <main>
+        <a href="#" class="page-top-btn">トップへ戻る</a>
+        <div id="content-container">
+            <div id="home" class="content active">
+                <h1 class="subsection">
+                    <span class="wrap-text">
+                        レポジトリ更新しました 231010
+                    </span>
+                </h1>
+                <div class="wrap-text">
+                    <p>
+                        pythonのパッケージの一つ，lssvrを実行するために環境を構築したので，その時使ったDockerfile等をアップロードしました．
+                    </p>
+                    <a href="https://github.com/oct0pus8winner/EnvironmentToTestPythonPackageLSSVR">レポジトリ</a>
+                    <p> 使い方はレポジトリのreadmeに書いてあるので参照ください．自分の知識が浅く，余計なものも入っていて重いと思います．．．</p>
+                    <p>
+                        環境を作るときにいろいろ詰まって学びが何点あったのですが，時間の都合（＋自分の興味次第）で執筆できるかわからないので，要点だけ書いておきます．誰かの助けになれば幸いです．
+                    </p>
+                    <div class="item">ubuntu22.04のpythonはデフォルトで3.10</div>
+                    <div class="item">実行ができる docker-compose.yml でもネットワークの接続しだいで403エラー</div>
+                    <div class="item">いちいち古いイメージからインポートしていることがエラーの原因</div>
+                    <div class="item">packageの競合は解決できないときも...</div>
+                    <div class="item">dockerfileを用意したからといって必ずしも同じ環境が再現できるとは限らない（インポートしているイメージにアクセスできないなど）</div>
+                    <p>
+                        ずっとDockerで環境作ってきましたが，Dockerにもちゃんとよくないところがあることを改めて知ったり，ubuntu22.04はpython3.10がデフォルト搭載なのをしれたり，いろんな経験がありました．すごく苦労したんですが，その分血肉になったんじゃないかなと思います．
+                    </p>
+                    <p>
+                        サイトのUIが記事になると上にホームページに戻るボタンがなかったりコードの箇所が見にくかったりしてすみません．自分で原稿を書いてるときはそんなこと気にならないんですが，やっぱりユーザーフレンドリーじゃないですよね．今後余裕があればちょこっとずつ変えていきたいです
+                    </p>
+                </div>
+                <div class="wrap-text">
+                    <a class="button" href="../index.html">トップページへ戻る</a>
+                    <a class="button" href="page002_github-tutorial.html">前の記事へ</a>
+                    <a class="button">次の記事へ</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="link">
+        <h2 class="subsection">
+            <span class="wrap-text"> Connect </span>
+        </h2>
+        <div class="wrap-text">
+            <!--
+                <a class="button" href="" 　title="お問い合わせはこちら">問い合わせフォーム</a> 
+            -->
+            <a class="button" href="http://www.anarg.jp/index.php">村田研究室</a>
+            <a class="button" href="https://www.ist.osaka-u.ac.jp/japanese/">大阪大学 情報科学研究科</a>
+        </div>
+        <p>
+            &copy; 2023 Haruhito Ando. All rights reserved.
+        </p>
+    </footer>
+    <script src="script/script.js"></script>
+</body>
+
+</html>
