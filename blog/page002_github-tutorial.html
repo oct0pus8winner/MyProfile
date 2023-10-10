@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haruhito Ando</title>
+    <link rel="stylesheet" href="../style/style.css" type="text/css" media="all">
+</head>
+
+<body class="wrapper">
+    <header>
+        <div id="banner">
+            <h1>Haruhito_Ando.lib</h1>
+        </div>
+    </header>
+    <main>
+        <a href="#" class="page-top-btn">トップへ戻る</a>
+        <div id="content-container">
+
+            <div id="home" class="content active">
+                <h1 class="section">
+                    <span class="container wrap-text">
+                        Githubを設定した話 231010
+                    </span>
+                </h1>
+
+                <h2 class="subsection">
+                    <div class="wrap-text">
+                        こんな人におすすめ
+                    </div>
+                </h2>
+                <div class="container wrap-text">
+                    <ul>
+                        <li>wsl2 x vscode x github 使ってみたい人</li>
+                        <li>githubにsshで接続したい人</li>
+                        <li>githubに公開してあるレポジトリをクローンしてローカルで編集したものを反映させたい人</li>
+                    </ul>
+                    <p>コピーボタンとか作ってないです．すみません．</p>
+                </div>
+
+                <h2 class="subsection">
+                    <div class="wrap-text">
+                        やったこと
+                    </div>
+                </h2>
+                <div class="container wrap-text">
+                    <ul>
+                        <li>wsl2 x vscode x github 使ってみたい人</li>
+                        <li>githubにsshで接続したい人</li>
+                        <li>githubに公開してあるレポジトリをクローンしてローカルで編集したものを反映させたい人</li>
+                    </ul>
+                    <p>コピーボタンとか作ってないです．すみません．</p>
+                    <pre class="hljs"><code><div>
+                        ~$ mkdir ./ssh
+                        ~$ <span class="hljs-built_in">cd</span> ./ssh
+                        ~$ ssh-keygen -t rsa
+                        ~$ clip.exe &lt; ~/.ssh/id_rsa.pub
+                                        </div></code></pre>
+                    <ul>
+                        <li>github開く</li>
+                        <li>SSH and GPG keys &gt; SSH keys &gt; Add new SSH Key</li>
+                        <li>Title設定，コピーしたものをKeyに貼り付け</li>
+                    </ul>
+                    <pre class="hljs"><code><div>
+                        ~$ ssh -T git@github.com
+                        ...
+                        Hi oct0pus8winner! You<span class="hljs-string">'ve successfully authenticated, but GitHub does not provide shell access.
+                                        </span></div></code></pre>
+                    <ul>
+                        <li>後半の文字列は無視して大丈夫</li>
+                    </ul>
+                    <pre class="hljs"><code><div>
+                        ~$ git config --global user.email <span class="hljs-string">"you@example.com"</span>
+                        ~$ git config --global user.name <span class="hljs-string">"Your Name"</span>
+                                        </div></code></pre>
+                    <ul>
+                        <li>githubのクローンしたいレポジトリを開く</li>
+                        <li>Code&gt;SSH</li>
+                        <li>urlをコピー</li>
+                    </ul>
+                    <pre class="hljs"><code><div>
+                        ~$ git <span class="hljs-built_in">clone</span> (copied url)
+                                        </div></code></pre>
+                    <ul>
+                        <li>ファイルを追加</li>
+                    </ul>
+                    <pre class="hljs"><code><div>
+                        ~$ git add ./page002_github-tutorial.html
+                        ~$ git commit -m <span class="hljs-string">"new page created"</span>
+                        ...
+                         1 file changed, 0 insertions(+), 0 deletions(-)
+                        ...
+                        ~$ git push -u origin
+                                        </div></code></pre>
+                </div>
+
+                <h2 class="subsection">
+                    <div class="wrap-text">
+                        作業ログ
+                    </div>
+                </h2>
+                <div class="container wrap-text">
+                    <h3>きっかけ</h3>
+                    <p>なんで今更これを書こうかと思ったかといいますと，Windows PC
+                        を新しくしたので，何度目かのセットアップの機会がありました．毎度忘れてて調べながらやってるので，どうせ最初からやるなら，なにか成果物を作って記憶に定着しやすくなるようにしよう，というところから始まりました．
+                    </p>
+                    <p>私の技術力はといいますと，お恥ずかしい話何度かgitを使おうとしたのですが，例えばクローンして改修したレポジトリがコマンドのミス（結構ヤバイことやりました）で全部消えたり，sshに失敗して萎えたり，チームで開発した経験がなかったり，そもそも研究以外でほとんどプログラムを書かなかったりとバージョン管理と縁遠い（本当はめちゃくちゃ大事なのに）生活を送っていました．
+                    </p>
+                    <p>情報科学研究科なのか本当にとツッコまれても言い返せないレベルです．学部生のころに勝ったGitHub実践入門も，今ではホコリを被っていました．本当に恥ずかしいです．．．</p>
+                    <p>今回は，windowsを新しくセットアップするにあたって，せっかくホームページでブログ書こうと決めたので，作業ログを書くことにしました．sshコマンドとか，なんとなく使っていたものもこの機会に調べてみようと思い，取り組みました．見ていっていただけますと幸いです．
+                    </p>
+                    <p>アカウントは作っておいてください．（省略）参考にした書籍，記事は末尾にあります．ゆっくり見ていってね．</p>
+
+                    <!------->
+                    <h3>SSH KEY</h3>
+                    <p>まずは，githubのリポジトリにアクセスするためにSSH(Secure Shell)プロトコルを使いたいので，公開鍵を作りたいと思います．</p>
+                    <p>書き終わった後に調べたんですが，公式はhttpsの方が推奨されてるのかもです．なんならデフォルトです．昔読みながら動かしてた時に，&quot;GithubではSSHを使って接続します！&quot;と書いてあったのと，sshの方がhttpsよりセキュリティ対策として安全なのかなという思い込みで，ターミナルから使うときはsshを使うもんなんだなぁと思い込んでしまってました．ghについては，1ミリも知らないです．ghを使った方がsshより簡単とかなんとか．機会があれば勉強します．
+                    </p>
+                    <p>鍵の生成には，<code>ssh-keygen</code>というコマンドを使います．いつも調べてコピペして使っている<code>ssh-keygen</code>ですが，名前からして，sshの鍵を作るやつなんだな，とはわかりますが，いつも使ってるオプションって一体なんなんだろうと思い，<code>man</code>コマンドを使って確認しました．-tオプションについての記述は次の通りです．
+                    </p>
+                    <pre class="hljs"><code><div>
+                        -t dsa | ecdsa | ecdsa-sk | ed25519 | ed25519-sk | rsa
+                         Specifies the <span class="hljs-built_in">type</span> of key to create.  The possible values are “dsa”, “ecdsa”, “ecdsa-sk”, “ed25519”, “ed25519-sk”, or “rsa”.
+            
+                         This flag may also be used to specify the desired signature <span class="hljs-built_in">type</span> when signing certificates using an RSA CA key.  The available RSA signature variants
+                         are “ssh-rsa” (SHA1 signatures, not recommended), “rsa-sha2-256”, and “rsa-sha2-512” (the default).
+                    </div></code></pre>
+                    <p>ed25519ってなんじゃい，習ってないです．．．
+                        &quot;man ssh-keygen&quot;とかで調べても結構古いサイトが多くヒットし
+                        ecdsa等の暗号化アルゴリズムについての解説がないことが多いです．
+                        ssh github等で調べると</p>
+                    <pre class="hljs"><code><div>
+                        ~$ ssh-keygen -t rsa
+                    </div></code></pre>
+                    <p>と書いてあるものが多いのですが（今回は私もとりあえずこれでやりました），最近のqiitaの記事を見ると</p>
+                    <pre class="hljs"><code><div>
+                        ~$ ssh-keygen -t ed25519
+                    </div></code></pre>
+                    <p>というのがちょいちょいあって，気になりました．調査．</p>
+                    <p>ed25519とはedと25519の組み合わせであり，前者はEdDSAという署名方式の一種で，そのあとについている数字は暗号生成に利用している楕円曲線の名前に由来しているそうです．</p>
+                    <p>暗号化の具体的な実装については今は関心がないので，今後気になったときに調べたいと思います，参考になりそうな比較したものを末尾に載せておきます．</p>
+                    <p>それでは本題に戻ります．sshの鍵を生成します．この際ホームディレクトリで作業を行うのがいいかもです．次のコマンドを実行します</p>
+                    <pre class="hljs"><code><div>
+                        ~$ mkdir ~/.ssh
+                        ~$ <span class="hljs-built_in">cd</span> ~./.ssh
+                        ~/.ssh$ ssh-keygen -t rsa
+                    </div></code></pre>
+                    <p>三回入力を求められますが， パスフレーズは認証に使うので覚えておいてください． （セキュリティの観点から見ていいのかどうかはさておき，Enterキー連打でも大丈夫です）</p>
+                    <p>生成した公開鍵をgithubに登録します.ブラウザからgithubにログインし，設定からSSH and GPG keysのページを開き，鍵を登録します．
+                    </p>
+                    <img src="../image/ssh/ssh-1.png" alt="ssh1">
+                    <img src="../image/ssh/ssh-2.png" alt="ssh2">
+                    <img src="../image/ssh/ssh-3.png" alt="ssh3">
+                    <p>title
+                        は自分がどこから接続しているのかわかるように，Keyのところには生成したキーを入れてください．wsl2で実行しているため，terminal上にclipコマンドは存在しませんが，<code>clip.exe</code>にwsl2が自動でパスを通してくれているとのことで（今回初めて知りました）次のコマンドでコピーして貼り付けます．記事に意外と書いてくれてないですよね．どこにあるか気になる人はwhichコマンド使ったりして調べてください．
+                    </p>
+                    <pre class="hljs"><code><div>
+                        ~$ clip.exe &lt; ~/.ssh/id_rsa.pub
+                    </div></code></pre>
+                    <p>
+                        登録したら再度ターミナルを開いて接続のテストします．よく見るコマンドですね．
+                    </p>
+                    <pre class="hljs"><code><div>
+                        ~$ ssh -T git@github.com
+                        The authenticity of host <span class="hljs-string">'github.com (20.27.177.113)'</span> can<span class="hljs-string">'t be established.
+                        ED25519 key fingerprint is (original fingerprint).
+                        This key is not known by any other names
+                        Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+                        Warning: Permanently added '</span>github.com<span class="hljs-string">' (ED25519) to the list of known hosts.
+                        Hi oct0pus8winner! You'</span>ve successfully authenticated, but GitHub does not provide shell access.
+                    </div></code></pre>
+                    <p>Hiってでてるからできたな，メールも届いたしオッケー，と思いきやなんかちょっと怒られてます．githubのアカウントをターミナルに登録した覚えがないからですね．</p>
+                    <pre class="hljs"><code><div>
+                        ~$ git config --global user.email <span class="hljs-string">"you@example.com"</span>
+                        ~$ git config --global user.name <span class="hljs-string">"Your Name"</span>
+                    </div></code></pre>
+                    <p>ここで急に<code>ssh</code>コマンドのTオプションってなんなんだろうと思い調べました．
+                    </p>
+                    <pre class="hljs"><code><div>
+                        -T      Disable pseudo-terminal allocation.
+                    </div></code></pre>
+                    <p>シンプルですね．</p>
+
+                    <!-------->
+                    <h3>リモートレポジトリにアクセス</h3>
+                    <p>以後レポジトリを作ってある前提で話を進めるので，まだ作ってないヨという人は手を止めて作ってみてください．</p>
+                    <p>作成したレポジトリ(Repositories)をクローン(Clone)します．電気羊ですね．GithubのページからCode&gt;local&gt;sshで出てくるURLをコピーします．なんか見切れてましたがこの画像の下にでてくるのURL部分を．コピーして使います．
+                    </p>
+                    <img src="../image/ssh/ssh-4.png" alt="ssh4">
+                    <p>続いてターミナルに戻り，複製したい場所に移動して</p>
+                    <pre class="hljs"><code><div>~$ git <span class="hljs-built_in">clone</span> (copied url)
+                    </div></code></pre>
+                    <p>で終わりです．適当にファイルを作って，レポジトリを更新してみます．よくあるadd,commit, pushのやつです．</p>
+                    <pre class="hljs"><code><div>
+                        ~$ git add ./page002_github-tutorial.html
+                        ~$ git commit -m <span class="hljs-string">"new page created"</span>
+                        [main fd47566] new page created
+                         1 file changed, 0 insertions(+), 0 deletions(-)
+                         create mode 100644 page002_github-tutorial.html
+                    </div></code></pre>
+                    <p>ちなみにgithubのアカウント登録してないと怒られます．</p>
+                    <pre class="hljs"><code><div>
+                        Author identity unknown
+                        *** Please tell me who you are.
+                        Run
+                          git config --global user.email <span class="hljs-string">"you@example.com"</span>
+                          git config --global user.name <span class="hljs-string">"Your Name"</span>
+                        to <span class="hljs-built_in">set</span> your account<span class="hljs-string">'s default identity.
+                            Omit --global to set the identity only in this repository.
+                            fatal: empty ident name (for hostname) not allowed
+                    </span></div></code></pre>
+                    <p>ステージしてコミットしたので，最後にプッシュしてレポジトリを更新します</p>
+                    <pre class="hljs"><code><div>
+                        $ git push -u origin
+                        Enumerating objects: 4, <span class="hljs-keyword">done</span>.
+                        Counting objects: 100% (4/4), <span class="hljs-keyword">done</span>.
+                        Delta compression using up to 16 threads
+                        Compressing objects: 100% (2/2), <span class="hljs-keyword">done</span>.
+                        Writing objects: 100% (3/3), 302 bytes | 302.00 KiB/s, <span class="hljs-keyword">done</span>.
+                        Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+                        remote: Resolving deltas: 100% (1/1), completed with 1 <span class="hljs-built_in">local</span> object.
+                        To github.com:oct0pus8winner/MyProfile.git
+                           6b47c9c..fd47566  main -&gt; main
+                        Branch <span class="hljs-string">'main'</span> <span class="hljs-built_in">set</span> up to track remote branch <span class="hljs-string">'main'</span> from <span class="hljs-string">'origin'</span>.
+                    </div></code></pre>
+                    <p><code>-u origin</code>のオプションをつけることで，次回からは<code>git push</code>で更新できるそうです．一人で使う分にはこれでいいかも．</p>
+
+                    <!---->
+                    <h3>VS CodeのGUIでプッシュしてみる</h3>
+                    <p>どのExtensionを使っているのか忘れましたが，いつぞやのアップデートでGitHub
+                        Extensionがvscodeに内臓されるようになった（らしい）ので，多分vscodeにgithubアカウントでログインしていれば使えると思います．</p>
+                    <p>左側のアイコン一覧の枝分かれしているマーク，Source Controlを選択し，コミットしてみます．Commit &amp; Pushっていうのがあるんですね，楽ちんじゃん．</p>
+                    <img src="../image/ssh/ssh-5.png" alt="ssh5">
+                    <img src="../image/ssh/ssh-6.png" alt="ssh6">
+                    <p>怒られました，ステージにaddしてないですからね．でもこれでYesを選択するとまとめてやってくれました．感謝感謝．</p>
+                    <p>github上で確認．</p>
+                    <img src="../image/ssh/ssh-7-1.png" alt="ssh-7-1">
+                    <img src="../image/ssh/ssh-7-2.png" alt="ssh-7-2">
+                    <p>できました．</p>
+                </div>
+                <h2 class="subsection">
+                    <span class="container wrap-text">
+                        最後に
+                    </span>
+                </h2>
+
+                <div class="container wrap-text">
+                    <p>情報科学研究科の大学院生なのでGitHubくらい使えて当たり前ですよね．何を今更やってんのっていう感じですが，同じように困っている人の助けになると嬉しいです．ブランチとか適当にやってるので，バージョン管理の利点が5割減な気がしますね．なんで今まで触らなかったんですかね，情報系で希少種かもしれないです．
+                    </p>
+                    <p>書いてる内容のレベルはともかく，こうやって記事書くのおもしろいですね．調べるとあれもこれも気になってキリがないですね．執筆時間はだいたい1.5hぐらいです．プロ驚き屋目指して頑張ります．</p>
+                    <p>掲載しているコードについて，自分の知識不足でたぶんすごく見にくいと思います．今はちょっと手がさけそうにないので，今後コード乗っけるときは改善したいなと思います．</p>
+                </div>
+
+                <h2 class="subsection">
+                    <span class="container wrap-text">
+                        参考書籍
+                    </span>
+                </h2>
+                <div class="container wrap-text">
+                    <div class="item"><a href="https://amzn.asia/d/9msFxlf">GitHub実践入門 ~Pull Requestによる開発の変革 (WEB+DB
+                            PRESS plus)</a></div>
+                    <div class="item"><a
+                            href="https://zenn.dev/claustra01/articles/d5b31d0ffa0eb2">WSL2のインストールからGitHubへのSSH接続まで</a>
+                    </div>
+                    <div class="item"><a
+                            href="https://qiita.com/angel_p_57/items/a1dc4e9c0b18a23c5242">電子署名EdDSA(ed25519)の数的構造
+                            -Qiita</a></div>
+                    <div class="item"><a href="https://goteleport.com/blog/comparing-ssh-keys/">Comparing SSH Keys -
+                            RSA, DSA, ECDSA, or EdDSA?</a></div>
+                    <div class="item"><a href="https://qiita.com/sasaki_hir/items/45885960b46f87226fd8">[wsl]
+                            地味に便利なclip.exeでのテキストコピー- Qiita</a></div>
+                    <div class="item"><a href="https://note.com/yo16/n/n044ef7676f7f">GitHubへSSH接続できなかった話｜yo16</a></div>
+                    <div class="item"><a
+                            href="https://qiita.com/teixan/items/31f163029feef0543bad">Git超入門「出来て当たり前、SSHでGitHub」の練習
+                            -Qiita</a></div>
+                    <div class="item"><a
+                            href="https://docs.github.com/ja/get-started/using-git/pushing-commits-to-a-remote-repository">コミットをリモートリポジトリにプッシュする-
+                            GitHub Docs</a></div>
+                    <div class="item"><a
+                            href="https://zenn.dev/nameless_sn/articles/the_differences_between_https_and_ssh">【解説】【GitHub】HTTPSとSSHの違い</a>
+                    </div>
+                    <div class="item"><a href="https://github.com/cli/cli/discussions/5532">SSH or HTTPS · cli/cli ·
+                            Discussion #5532</a></div>
+
+                </div>
+
+                <!-- fotter like -->
+                <div class="wrap-text">
+                    <a class="button" href="index.html">トップページへ戻る</a>
+
+                    <a class="button" href="page001_remake-web-page.html">前の記事へ</a>
+
+                    <a class="button">次の記事へ</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="link">
+        <h2 class="subsection">
+            <span class="wrap-text"> Connect </span>
+        </h2>
+        <div class="wrap-text">
+            <!--
+                <a class="button" href="" 　title="お問い合わせはこちら">問い合わせフォーム</a> 
+            -->
+            <a class="button" href="http://www.anarg.jp/index.php">村田研究室</a>
+            <a class="button" href="https://www.ist.osaka-u.ac.jp/japanese/">大阪大学 情報科学研究科</a>
+        </div>
+        <p>
+            &copy; 2023 Haruhito Ando. All rights reserved.
+        </p>
+    </footer>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

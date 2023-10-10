@@ -85,7 +85,8 @@ header a:visited {
   margin-left: 36px;
 }
 
-.pages, .main-navi {
+.pages,
+.main-navi {
   font-family: serif;
   color: white;
 }
@@ -199,6 +200,13 @@ footer {
 .button:hover {
   background-color: rgba(7, 140, 140, 1);
 }
+
+/**
+ * ------------------------------------------------------
+ * Setting for code
+ */
+
+/* 書き方わからな～い*/
 
 /**
  * ------------------------------------------------------
